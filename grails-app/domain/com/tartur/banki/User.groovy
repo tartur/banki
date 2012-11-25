@@ -1,13 +1,12 @@
 package com.tartur.banki
 
 class User {
-	String firstName
-	String lastName
-	String emailAddress
-	String password
-	
+    String username
+    String passwordHash
+    
+    static hasMany = [ roles: Role, permissions: String ]
+
     static constraints = {
-		emailAddress blank: false, email: true
-		password blank:false 
+        username(nullable: false, blank: false, unique: true)
     }
 }

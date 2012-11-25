@@ -31,7 +31,7 @@
 					
 				</li>
 				</g:if>
-			
+			<%--
 				<g:if test="${userInstance?.password}">
 				<li class="fieldcontain">
 					<span id="password-label" class="property-label"><g:message code="user.password.label" default="Password" /></span>
@@ -40,7 +40,7 @@
 					
 				</li>
 				</g:if>
-			
+			 --%>
 				<g:if test="${userInstance?.firstName}">
 				<li class="fieldcontain">
 					<span id="firstName-label" class="property-label"><g:message code="user.firstName.label" default="First Name" /></span>
