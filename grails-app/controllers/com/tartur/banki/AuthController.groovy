@@ -39,12 +39,15 @@ class AuthController {
             // Perform the actual login. An AuthenticationException
             // will be thrown if the username is unrecognised or the
             // password is incorrect.
+			println("Log in "+authToken)
             SecurityUtils.subject.login(authToken)
 
             log.info "Redirecting to '${targetUri}'."
             redirect(uri: targetUri)
         }
         catch (AuthenticationException ex){
+			println("Log in failed "+ex)
+			ex.printStackTrace()
             // Authentication failed, so display the appropriate message
             // on the login page.
             log.info "Authentication failure for user '${params.username}'."

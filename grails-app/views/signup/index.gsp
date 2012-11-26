@@ -8,10 +8,7 @@
 
 
 <body>
-
-
 	<h1>Signup</h1>
-
 
 	<g:if test="${flash.message}">
 		<div class="alert alert-info">
@@ -19,13 +16,11 @@
 		</div>
 	</g:if>
 
-
 	<g:hasErrors bean="${user}">
 		<div class="alert alert-error">
 			<g:renderErrors bean="${user}" as="list" />
 		</div>
 	</g:hasErrors>
-
 
 	<g:form action="register">
 		<fieldset>
@@ -36,12 +31,19 @@
 				</label>
 				<g:textField name="username" required="" value="${user?.username}" />
 			</div>
+			
+			<div
+				class="fieldcontain ${hasErrors(bean: user, field: 'emailAddress', 'error')} required">
+				<label for="emailAddress"> <g:message code="user.email.label"
+						default="Email" /> <span class="required-indicator">*</span>
+				</label>
+				<g:textField name="emailAddress" required="" value="${user?.emailAddress}" />
+			</div>
 
 			<div
 				class="fieldcontain ${hasErrors(bean: user, field: 'password', 'error')} required">
-				<label for="password">
-					<g:message code="user.password.label" default="Password" /> <span
-					class="required-indicator">*</span>
+				<label for="password"> <g:message code="user.password.label"
+						default="Password" /> <span class="required-indicator">*</span>
 				</label>
 				<g:passwordField name="password" required="" value="" />
 			</div>
@@ -49,8 +51,8 @@
 
 			<div
 				class="fieldcontain ${hasErrors(bean: user, field: 'password', 'error')} required">
-				<label for="password">
-					<g:message code="user.password2.label" default="Confirm Password" /> <span
+				<label for="password"> <g:message
+						code="user.password2.label" default="Confirm Password" /> <span
 					class="required-indicator">*</span>
 				</label>
 				<g:passwordField name="password2" required="" value="" />

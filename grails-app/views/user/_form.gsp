@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
+	<label for="username">
+		<g:message code="user.username.label" default="Username" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="username" required="" value="${userInstance?.username}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'emailAddress', 'error')} required">
 	<label for="emailAddress">
 		<g:message code="user.emailAddress.label" default="Email Address" />
@@ -10,27 +18,18 @@
 	<g:field type="email" name="emailAddress" required="" value="${userInstance?.emailAddress}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-	<label for="password">
-		<g:message code="user.password.label" default="Password" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'permissions', 'error')} ">
+	<label for="permissions">
+		<g:message code="user.permissions.label" default="Permissions" />
 	</label>
-	<g:passwordField name="password" required="" value="${userInstance?.password}" />
+	
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'firstName', 'error')} ">
-	<label for="firstName">
-		<g:message code="user.firstName.label" default="First Name" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'roles', 'error')} ">
+	<label for="roles">
+		<g:message code="user.roles.label" default="Roles" />
 		
 	</label>
-	<g:textField name="firstName" value="${userInstance?.firstName}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'lastName', 'error')} ">
-	<label for="lastName">
-		<g:message code="user.lastName.label" default="Last Name" />
-		
-	</label>
-	<g:textField name="lastName" value="${userInstance?.lastName}"/>
+	<g:select name="roles" from="${com.tartur.banki.Role.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.roles*.id}" class="many-to-many"/>
 </div>
 

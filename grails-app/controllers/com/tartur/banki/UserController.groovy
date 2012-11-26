@@ -15,21 +15,6 @@ class UserController {
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
 
-    def create() {
-        [userInstance: new User(params)]
-    }
-
-    def save() {
-        def userInstance = new User(params)
-        if (!userInstance.save(flush: true)) {
-            render(view: "create", model: [userInstance: userInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-        redirect(action: "show", id: userInstance.id)
-    }
-
     def show(Long id) {
         def userInstance = User.get(id)
         if (!userInstance) {
