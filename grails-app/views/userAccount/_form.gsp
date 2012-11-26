@@ -10,14 +10,6 @@
 	<g:textField name="name" required="" value="${accountInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: accountInstance, field: 'admin', 'error')} required">
-	<label for="admin">
-		<g:message code="account.admin.label" default="Admin" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="admin" name="admin.id" from="${com.tartur.banki.User.list()}" optionKey="id" required="" value="${accountInstance?.admin?.id}" class="many-to-one"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: accountInstance, field: 'operations', 'error')} ">
 	<label for="operations">
 		<g:message code="account.operations.label" default="Operations" />

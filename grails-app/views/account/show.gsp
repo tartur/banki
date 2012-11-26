@@ -23,6 +23,35 @@
 			</g:if>
 			<ol class="property-list account">
 			
+				<g:if test="${accountInstance?.name}">
+				<li class="fieldcontain">
+					<span id="name-label" class="property-label"><g:message code="account.name.label" default="Name" /></span>
+					
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${accountInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${accountInstance?.admin}">
+				<li class="fieldcontain">
+					<span id="admin-label" class="property-label"><g:message code="account.admin.label" default="Admin" /></span>
+					
+						<span class="property-value" aria-labelledby="admin-label"><g:link controller="user" action="show" id="${accountInstance?.admin?.id}">${accountInstance?.admin?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${accountInstance?.operations}">
+				<li class="fieldcontain">
+					<span id="operations-label" class="property-label"><g:message code="account.operations.label" default="Operations" /></span>
+					
+						<g:each in="${accountInstance.operations}" var="o">
+						<span class="property-value" aria-labelledby="operations-label"><g:link controller="operation" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

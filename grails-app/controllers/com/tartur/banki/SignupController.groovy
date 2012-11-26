@@ -3,6 +3,7 @@ package com.tartur.banki
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.UsernamePasswordToken
 import org.apache.shiro.crypto.hash.Sha512Hash
+import org.apache.tools.ant.taskdefs.email.EmailAddress;
 
 class SignupController {
 
@@ -23,11 +24,15 @@ class SignupController {
 			if (params.password != params.password2) {
 				flash.message = "Passwords do not match"
 				redirect(action:'index')
-			} else {
+			}else if(!params.emailAddress){
+				flash.message = message(code: 'user.error.email.missing', default: "Email address is mandatory")
+				redirect(action:'index')
+			}else {
 				// Passwords match. Let's attempt to save the user
 				// Create user
 				user = new User(
 						username: params.username,
+						emailAddress: params.emailAddress,
 						passwordHash: new Sha512Hash(params.password).toHex()
 						)
 				if (user.save()) {

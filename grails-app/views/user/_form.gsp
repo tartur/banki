@@ -18,11 +18,11 @@
 	<g:field type="email" name="emailAddress" required="" value="${userInstance?.emailAddress}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'permissions', 'error')} ">
-	<label for="permissions">
-		<g:message code="user.permissions.label" default="Permissions" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'accounts', 'error')} ">
+	<label for="accounts">
+		<g:message code="user.accounts.label" default="Accounts" />
 	</label>
-	
+	<g:select name="accounts" from="${com.tartur.banki.Account.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.accounts*.id}" class="many-to-many"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'roles', 'error')} ">

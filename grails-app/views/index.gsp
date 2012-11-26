@@ -103,22 +103,5 @@
 				</g:each>
 			</ul>
 		</div>
-		<div id="page-body" role="main">
-			<g:link controller="auth" action="login">
-				<g:message code="default.link.login.label" default="Log in"/>
-			</g:link>
-			<g:link controller="signup" action="index">
-				<g:message code="default.link.signup.label" default="Sign up"/>
-			</g:link>
-			<h1>Welcome to Banki</h1>
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
 	</body>
 </html>

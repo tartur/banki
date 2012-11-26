@@ -41,11 +41,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.permissions}">
+				<g:if test="${userInstance?.accounts}">
 				<li class="fieldcontain">
-					<span id="permissions-label" class="property-label"><g:message code="user.permissions.label" default="Permissions" /></span>
+					<span id="accounts-label" class="property-label"><g:message code="user.accounts.label" default="Accounts" /></span>
 					
-						<span class="property-value" aria-labelledby="permissions-label"><g:fieldValue bean="${userInstance}" field="permissions"/></span>
+						<g:each in="${userInstance.accounts}" var="a">
+						<span class="property-value" aria-labelledby="accounts-label"><g:link controller="account" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

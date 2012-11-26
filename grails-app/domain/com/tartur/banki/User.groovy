@@ -5,7 +5,7 @@ class User {
     String passwordHash
 	String emailAddress
     
-    static hasMany = [ roles: Role, permissions: String ]
+    static hasMany = [ roles: Role, permissions: String, accounts: Account ]
 
     static constraints = {
         username(nullable: false, blank: false, unique: true)

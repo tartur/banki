@@ -2,6 +2,14 @@ package com.tartur.banki
 
 class Account {
 
-    static constraints = {
-    }
+	String name
+
+	static hasMany = [ operations: Operation]
+
+	static belongsTo = [admin: User]
+
+	static constraints = {
+		name(blank:false)
+		admin(blank:false)
+	}
 }
