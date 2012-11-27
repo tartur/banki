@@ -7,6 +7,6 @@ package com.tartur.banki;
  * @author tartur
  * 
  */
-public enum AccountRole {
+public enum MemberRole {
 	Admin, Writer, Reader
 }

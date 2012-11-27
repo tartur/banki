@@ -32,11 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${accountInstance?.admin}">
+				<g:if test="${accountInstance?.owner}">
 				<li class="fieldcontain">
-					<span id="admin-label" class="property-label"><g:message code="account.admin.label" default="Admin" /></span>
+					<span id="owner-label" class="property-label"><g:message code="account.owner.label" default="Owner" /></span>
 					
-						<span class="property-value" aria-labelledby="admin-label"><g:link controller="user" action="show" id="${accountInstance?.admin?.id}">${accountInstance?.admin?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="owner-label"><g:link controller="user" action="show" id="${accountInstance?.owner?.id}">${accountInstance?.owner?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -47,6 +47,17 @@
 					
 						<g:each in="${accountInstance.operations}" var="o">
 						<span class="property-value" aria-labelledby="operations-label"><g:link controller="operation" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${accountInstance?.team}">
+				<li class="fieldcontain">
+					<span id="team-label" class="property-label"><g:message code="account.team.label" default="Team" /></span>
+					
+						<g:each in="${accountInstance.team}" var="t">
+						<span class="property-value" aria-labelledby="team-label"><g:link controller="nakama" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

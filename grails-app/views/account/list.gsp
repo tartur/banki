@@ -26,7 +26,7 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'account.name.label', default: 'Name')}" />
 					
-						<th><g:message code="account.admin.label" default="Admin" /></th>
+						<th><g:message code="account.owner.label" default="Owner" /></th>
 					
 					</tr>
 				</thead>
@@ -36,7 +36,7 @@
 					
 						<td><g:link action="show" id="${accountInstance.id}">${fieldValue(bean: accountInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: accountInstance, field: "admin")}</td>
+						<td>${fieldValue(bean: accountInstance, field: "owner")}</td>
 					
 					</tr>
 				</g:each>

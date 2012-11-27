@@ -18,6 +18,14 @@ class BootStrap {
 		def admin = new User(username: "Admin", passwordHash: new Sha512Hash("password").toHex(), emailAddress: "ad@gmail.com")
 		admin.addToRoles(adminRole)
 		admin.save()
+		
+		def tartur = new User(username: "tartur", passwordHash: new Sha512Hash("290180").toHex(), emailAddress: "tartur@gmail.com")
+		tartur.addToRoles(userRole)
+		tartur.save()
+		
+		def randouch = new User(username: "randouch", passwordHash: new Sha512Hash("290180").toHex(), emailAddress: "randouch@gmail.com")
+		randouch.addToRoles(userRole)
+		randouch.save()
     }
     def destroy = {
     }
